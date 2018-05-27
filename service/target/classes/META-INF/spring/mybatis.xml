@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+ <configuration>
+
+	<settings>
+		<!-- 控制台输出日志 -->
+		<setting name="logImpl" value="STDOUT_LOGGING" />
+	</settings>
+
+
+ 
+ 	<!-- 设置实体类别名 -->
+ 	<typeAliases>
+ 		<!-- 对同一包下统一使用简单类名为别名 -->
+ 		<package name="com.car.pojo"/>
+ 	</typeAliases>
+
+	<plugins>
+		<!-- mybatis分页插件PageHelper -->
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<property name="dialect" value="oracle" />
+		</plugin>
+	</plugins>
+ 	
+ </configuration>

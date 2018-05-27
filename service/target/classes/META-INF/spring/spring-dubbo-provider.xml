@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://code.alibabatech.com/schema/dubbo
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 配置应用名称 -->
+    <dubbo:application name="dubbo-provider"/>
+    <!-- 配置注册中心 -->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
+    <!-- 配置协议 -->
+    <!-- name指定服务提供者使用什么协议发布服务 -->
+    <!-- port指定服务提供者在哪个端口发布服务默认20880 -->
+    <!-- host指定服务提供者在哪个ip地址发布服务 -->
+    <dubbo:protocol name="dubbo" port="20880" host="127.0.0.1"/>
+
+    <!-- 需要暴露出该接口的服务 -->
+    <!-- ref指定该接口提供的服务由谁来实现 -->
+    <dubbo:service interface="com.car.service.intf.CarsServiceIntf" ref="carsServiceIntf" retries="0" timeout="3000"/>
+    <dubbo:service interface="com.car.service.intf.CheckTableServiceIntf" ref="checkTableServiceIntf" retries="0" timeout="3000"/>
+    <dubbo:service interface="com.car.service.intf.CustomersServiceIntf" ref="customersServiceIntf" retries="0" timeout="3000"/>
+    <dubbo:service interface="com.car.service.intf.RentTableServiceIntf" ref="rentTableServiceIntf" retries="0" timeout="3000"/>
+    <dubbo:service interface="com.car.service.intf.RolesServiceIntf" ref="rolesServiceIntf" retries="0" timeout="3000"/>
+    <dubbo:service interface="com.car.service.intf.UsersServiceIntf" ref="usersServiceIntf" retries="0" timeout="3000"/>
+    <!-- 此处的ref实际上是直接发布该接口的itemServiceImpl实现类的方法 -->
+    <!-- 由于实现类加了注解，所以这里直接使用bean的id -->
+
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://code.alibabatech.com/schema/dubbo
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 配置应用名称 -->
+	<dubbo:application name="dubbo-consumer" />
+	<!-- 配置注册中心 -->
+	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
+	<!-- 配置协议(可不写，跟随提供者) -->
+	<dubbo:protocol name="dubbo" port="20880" />
+	
+	<!-- 配置bean -->
+	<!-- 生成指定接口的远程代理类对象 -->
+	<dubbo:reference id="carsServiceIntf" retries="0" timeout="3000" interface="com.car.service.intf.CarsServiceIntf"></dubbo:reference>
+	<dubbo:reference id="customersServiceIntf" retries="0" timeout="3000" interface="com.car.service.intf.CustomersServiceIntf"></dubbo:reference>
+	<dubbo:reference id="checkTableServiceIntf" retries="0" timeout="3000" interface="com.car.service.intf.CheckTableServiceIntf"></dubbo:reference>
+	<dubbo:reference id="rentTableServiceIntf" retries="0" timeout="3000" interface="com.car.service.intf.RentTableServiceIntf"></dubbo:reference>
+	<dubbo:reference id="rolesServiceIntf" retries="0" timeout="3000" interface="com.car.service.intf.RolesServiceIntf"></dubbo:reference>
+	<dubbo:reference id="usersServiceIntf" retries="0" timeout="3000" interface="com.car.service.intf.UsersServiceIntf"></dubbo:reference>
+
+</beans>

@@ -1,0 +1,7 @@
+com\car\controller\RentTableController.class
+com\car\controller\CarsController.class
+com\car\interceptors\SysManagerInterceptor.class
+com\car\controller\CustomersController.class
+com\car\controller\RolesController.class
+com\car\controller\CheckTableController.class
+com\car\controller\UsersController.class
